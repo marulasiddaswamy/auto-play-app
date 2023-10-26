@@ -17,7 +17,7 @@ import honeybees from './assets/honeybees.mp3'
 import mosquito from './assets/mosquito.wav'
 import birdswings from './assets/birds-wings.mp3'
 import cartooninsect from './assets/cartoon-insect.wav'
-import classicAlarm from './assets/classic-alarm.wav'
+import thrips from './assets/thrips.mp3'
 import CardComponent from './CardComponent';
 import beeGif from './assets/beeGif.gif'
 import QSunGif from './assets/QSunGif.gif'
@@ -27,17 +27,17 @@ import warmGif from './assets/warmGif.gif'
 import spiderGif from './assets/spiderGif.gif'
 const testautoplay = [
   {
-    stage: 'Leaf Disease',
+    stage: 'white Flys',
     des: 'This disease is caused by the fungi Alternaria linariae (formally known as A. solani) ',
     gif: whiteFlies,
-    position:  { translateX: 750, translateY:100},
+    position:  { translateX: 730, translateY:180},
     linePosition:  { translateX: -200, translateY:100},
     blinkPosition:{ translateX: 650, translateY:90},
     sound:birdswings,
     gifImage:beeGif
   },
   {
-    stage: 'Leaf Disease',
+    stage: 'Pinworm',
     des: 'This disease is caused by the fungi Alternaria linariae (formally known as A. solani)',
     gif: pinworm,
     position:  { translateX: 750, translateY:0},
@@ -47,30 +47,30 @@ const testautoplay = [
     gifImage:butterflyGif
   },
   {
-    stage: 'Fruit Disease',
+    stage: 'Fruit Borer',
     des: 'Buckeye rot is a disease of the fruit caused by the fungus Phytophthora nicotianae var. parasitica. ',
     gif: testImages,
-    position:  { translateX: 180,translateY:150},
+    position:  { translateX: 410,translateY:180},
     linePosition:{ translateX: 200,translateY:55},
     blinkPosition:{ translateX: 480, translateY:180},
-    sound:classicAlarm,
+    sound:thrips,
     gifImage:warmGif
   },
   {
     stage: 'Stem Disease',
     des: 'As the bacterial infection progresses, more of the main stem turns brown and dies.',
     gif: Spidermite,
-    position:  { translateX: 170,translateY:250},
+    position:  { translateX: 380,translateY:360},
     linePosition:{ translateX: 200,translateY:100},
     blinkPosition:{ translateX: 530, translateY:310},
     sound:mosquito,
     gifImage:spiderGif
   },
   {
-    stage: 'Root Disease',
+    stage: 'Thrips',
     des: 'The soil-borne fungal disease corky root, caused by the fungus Pyrenochaeta lycopersici Schneider & Gerlach.',
     gif: tOmatoThrips,
-    position:  { translateX: 750,translateY:250},
+    position:  { translateX: 750,translateY:400},
     linePosition:{ translateX: -200,translateY:110},
     blinkPosition:{ translateX: 600, translateY:350},
     sound:cartooninsect,
@@ -111,59 +111,35 @@ useEffect(() => {
   </circle>
 </svg>
       </div>
-      {/* <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header> */}
-      {/* <AutoPlayPage/> */}
-      {/* <img
-      source={autoPlayImage}
-      style={{ width: "100%", height: "100%" , position:'absolute'}}
-  // resizeMode='contain'
-      /> */}
        <div style={{display:'flex', flexDirection:'row'}}>
       <div className='logoImage'>
       <img style={{width:'25%'
-      // height:'100%'
      }}
                 className='images' src={autoPlayImage}></img>
             </div>
-            <div style={{position:'absolute',transform: `translate(${testautoplay[count]?.position.translateX}px, 
-                  ${testautoplay[count]?.position.translateY}px)`
+           
+
+            {testautoplay.map((data,index)=>{
+              return(
+                <div style={{position:'absolute',transform: `translate(${data?.position.translateX}px, 
+                  ${data?.position.translateY}px)`
           }}>
-            {/* <div
-            style={{position:'relative',transform: `translate(${testautoplay[count]?.linePosition.translateX}px, 
-              ${testautoplay[count]?.linePosition.translateY}px)`
-      }}
-            >
-            <hr
-              style={{
-                color: 'red',
-                height: 0.2,
-                width:'100px',
-              }}
-            />
-            </div> */}
-         <CardComponent
-          source={testautoplay[count]?.gif}
-          name={testautoplay[count]?.stage}
-          des={testautoplay[count]?.des}
-          sound={testautoplay[count]?.sound}
-          gifImage={testautoplay[count]?.gifImage}
-          isGif={true}
+                <CardComponent
+          source={data?.gif}
+          name={data.stage}
+          des={data?.des}
+          sound={data.sound}
+          gifImage={data.gifImage}
+          isGif={false}
+          index={index}
+          count={count}
           />
+          </div>
+              )
+
+            })}
+         
           
-    </div>
     
     </div>
 
