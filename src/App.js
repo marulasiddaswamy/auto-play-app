@@ -2,8 +2,6 @@ import React, { useState, useEffect } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import autoPlayImage from './assets/autoPlayImage.png'
-import tomato_Leaf from './assets/tomato_Leaf.png'
-import tomato_root from './assets/tomato_root.png'
 import tomatoWarm1 from './assets/tomatoWarm1.png'
 import tomatoStem from './assets/tomatoStem.png'
 import whiteFlies from './assets/White-flies.png'
