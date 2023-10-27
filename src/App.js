@@ -18,6 +18,7 @@ import mosquito from './assets/mosquito.wav'
 import birdswings from './assets/birds-wings.mp3'
 import cartooninsect from './assets/cartoon-insect.wav'
 import thrips from './assets/thrips.mp3'
+import classicAlarm from './assets/classic-alarm.wav'
 import CardComponent from './CardComponent';
 import beeGif from './assets/beeGif.gif'
 import QSunGif from './assets/QSunGif.gif'
@@ -27,7 +28,7 @@ import warmGif from './assets/warmGif.gif'
 import spiderGif from './assets/spiderGif.gif'
 const testautoplay = [
   {
-    stage: 'white Flys',
+    stage: 'White fly',
     des: 'This disease is caused by the fungi Alternaria linariae (formally known as A. solani) ',
     gif: whiteFlies,
     position:  { translateX: 730, translateY:180},
@@ -53,7 +54,7 @@ const testautoplay = [
     position:  { translateX: 410,translateY:180},
     linePosition:{ translateX: 200,translateY:55},
     blinkPosition:{ translateX: 480, translateY:180},
-    sound:thrips,
+    sound:classicAlarm,
     gifImage:warmGif
   },
   {

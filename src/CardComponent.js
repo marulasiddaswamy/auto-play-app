@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react-hooks/exhaustive-deps */
 import React,{useEffect} from 'react';
 import './App.css';
@@ -6,9 +7,13 @@ import useSound from 'use-sound';
 function CardComponent(props) {
 //   const participantDetails = props
 const {name, source, des,sound, gifImage, isGif,index,count}= props
-const [play,{ stop }] = useSound(sound,{ interrupt: true },{ volume: 0.01 });
+const [play,{ stop }] = useSound(sound,{ volume: 0.005 });
 useEffect(() => {
  play()
+ const interval = setInterval(() => {
+ stop()
+}, 3000);
+  return () => clearInterval(interval);
 }, [index===count]);
 
 
@@ -30,7 +35,7 @@ useEffect(() => {
                   <h6 style={{color:'green'}}>{name}</h6>
                   </div>:
                    <div className="profile-image" style={{ borderRadius:'50px',borderColor:'gray',borderWidth:'1px',backgroundColor:'aliceblue',
-              height:'100px', width:'100px',}}>
+              height:'90px', width:'90px',}}>
           <img className="" style={{width:'100%', height:'100%',}} src={source} alt="Profile" />
           </div>
                 }
